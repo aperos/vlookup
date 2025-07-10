@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="manifest" href="./vlookup.webmanifest" />
+    <link rel="icon" href="./icon32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./base.css">
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <h1>VLOOKUP<br><span style="font-size: 50%;"><p id="strGreeting">I can fill table columns with data from another table.</span></h1>
+
+    <details open><summary>destination table</summary>
+      <details><summary>data</summary>
+        <textarea id="DestText" cols="80" rows="25" wrap="off"></textarea>
+        <div class="toolbar"><button class="action" data-action="importDest">import</button><button class="action" data-action="exportDest">export</button><div>
+      </details>
+      <div class="TableWrap"><table border=1 id="Dest" width="99%" tabindex="1001" contenteditable="true">
+        <tbody>
+          <tr><th>&nbsp;</th></tr>
+        </tbody>
+      </table></div></details>
+
+    <details open><summary>source table</summary>
+      <details><summary>data</summary>
+        <textarea id="SrcText" cols="80" rows="25" wrap="off"></textarea>
+        <div class="toolbar"><button class="action" data-action="importSrc">import</button><button class="action" data-action="exportSrc">export</button><div>
+      </details>
+      <div class="TableWrap"><table border=1 id="Src" width="99%" tabindex="1002" contenteditable="true">
+        <tbody>
+          <tr><th>&nbsp</th></tr>
+        </tbody>
+      </table></div></details>
+
+    <div class="toolbar" style="font-size: 0.5rem;"><form method="dialog" id="VlookupParameters">
+      <br><input name="key" maxlength="1" size="1" pattern="[a-zA-Z]" required />: KEY (Column name in the destination table to compare with.)
+      <br><input name="index" maxlength="1" size="1" pattern="[a-zA-Z]" required />: INDEX (Index column name in the source table.)
+      <br><input name="take" maxlength="1" size="1" pattern="[a-zA-Z]" required />: TAKE (Column name in the source table to retrieve data from.)
+      <br><input name="place" maxlength="1" size="1" pattern="[a-zA-Z]" required />: PLACE (Column name in the destination table to place data in.)
+      <br><button class="action" data-action="vlookup">vlookup</button>
+    </form></div>
+
+    <pre id="status"></pre>
+
+  </body>
+</html>
