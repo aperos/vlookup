@@ -76,6 +76,7 @@ function tsv2array(tsv){
   var result = tsv.split("\n");
   for(const k of result.keys()){
     var a = result[k].split('\t');
+    a.map((e,i)=>{a[i] = a[i].trim()});
     if(a.join('') != ''){result[k] = a}else{result[k]=null};
   }
   var i = 0;for(;;){
